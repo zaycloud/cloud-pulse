@@ -1,0 +1,10 @@
+---
+- name: Setup Cloud-Pulse Server
+  hosts: webservers
+  become: true
+
+  roles:
+    - common
+    - docker
+    - monitoring
+    - web

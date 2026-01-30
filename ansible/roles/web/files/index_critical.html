@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Pulse - CRITICAL ALERT</title>
+    <style>
+        body { background-color: #0f172a; font-family: 'Courier New', Courier, monospace; color: #ef4444; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+        .container { border: 2px solid #ef4444; padding: 2rem; border-radius: 8px; box-shadow: 0 0 30px rgba(239, 68, 68, 0.5); text-align: center; background: rgba(30, 10, 10, 0.95); max-width: 600px; animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both infinite; }
+        h1 { font-size: 3rem; margin-bottom: 0.5rem; text-shadow: 0 0 10px #ef4444; }
+        p { font-size: 1.2rem; color: #fca5a5; }
+        .status { color: #ef4444; font-weight: bold; font-size: 1.5rem; margin: 1rem 0; text-transform: uppercase; letter-spacing: 2px;}
+        .alert-icon { font-size: 3rem; display: block; margin-bottom: 10px; animation: flash 1s infinite; }
+        @keyframes flash { 0%, 100% { opacity: 1; text-shadow: 0 0 20px red; } 50% { opacity: 0.5; text-shadow: none; } }
+        @keyframes shake { 10%, 90% { transform: translate3d(-1px, 0, 0); } 20%, 80% { transform: translate3d(2px, 0, 0); } 30%, 50%, 70% { transform: translate3d(-4px, 0, 0); } 40%, 60% { transform: translate3d(4px, 0, 0); } }
+        .info { margin-top: 2rem; padding-top: 1rem; border-top: 1px dashed #ef4444; text-align: left; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>⚠️ SYSTEM ALERT</h1>
+        <div class="status">
+            <span class="alert-icon">🔥</span>
+            CRITICAL CPU LOAD DETECTED
+        </div>
+        <p>Infrastructure: <strong>UNDER HEAVY STRESS</strong></p>
+        <p>Incident Response: <strong>AUTOMATED SCALING INITIATED</strong></p>
+        <div class="info">
+            <p>❯ Monitoring Agent: <strong>ALERTING</strong></p>
+            <p>❯ CPU Load: <strong>> 80% (CRITICAL)</strong></p>
+            <p>❯ Auto-Healing: <strong>Attempting to stabilize...</strong></p>
+        </div>
+    </div>
+</body>
+</html>

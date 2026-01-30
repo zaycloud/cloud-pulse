@@ -1,0 +1,11 @@
+---
+- name: Restart Nginx
+  ansible.builtin.service:
+    name: nginx
+    state: restarted
+
+- name: Restart Monitor Service
+  ansible.builtin.systemd:
+    name: status_monitor
+    state: restarted
+    daemon_reload: yes

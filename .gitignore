@@ -1,0 +1,47 @@
+# User requested ignores
+GUIDE_svenska.md
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Terraform
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+crash.log
+*.tfvars
+*.tfvars.json
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraformrc
+terraform.rc
+
+# Ansible
+*.retry
+ansible/inventory.ini
+
+# IDE
+.vscode/
+.idea/
+
+# Private/Secret Keys
+*.pem
+*.key
+*.pub
+id_rsa*

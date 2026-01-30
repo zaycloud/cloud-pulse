@@ -1,0 +1,46 @@
+---
+- name: Create monitoring directory
+  ansible.builtin.file:
+    path: /opt/monitoring
+    state: directory
+    mode: '0755'
+    owner: ubuntu
+    group: ubuntu
+
+- name: Deploy Prometheus configuration
+  ansible.builtin.template:
+    src: prometheus.yml.j2
+    dest: /opt/monitoring/prometheus.yml
+    mode: '0644'
+    owner: ubuntu
+    group: ubuntu
+  notify: Restart monitoring stack
+
+- name: Deploy Docker Compose file
+  ansible.builtin.template:
+    src: docker-compose.yml.j2
+    dest: /opt/monitoring/docker-compose.yml
+    mode: '0644'
+    owner: ubuntu
+    group: ubuntu
+  notify: Restart monitoring stack
+
+- name: Install stress-ng for chaos demo
+  ansible.builtin.apt:
+    name: stress-ng
+    state: present
+    update_cache: yes
+
+- name: Copy chaos stress script
+  ansible.builtin.copy:
+    src: stress_cpu.py
+    dest: /opt/monitoring/stress_cpu.py
+    mode: '0755'
+    owner: ubuntu
+    group: ubuntu
+
+- name: Start monitoring stack with Docker Compose
+  community.docker.docker_compose_v2:
+    project_src: /opt/monitoring
+    state: present
+    pull: always

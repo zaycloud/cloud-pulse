@@ -1,0 +1,50 @@
+---
+- name: Install Nginx
+  ansible.builtin.apt:
+    name: nginx
+    state: present
+    update_cache: yes
+
+- name: Install Python psutil for status monitor
+  ansible.builtin.apt:
+    name: python3-psutil
+    state: present
+
+- name: Deploy Status Templates
+  ansible.builtin.copy:
+    src: "{{ item }}"
+    dest: "/opt/monitoring/{{ item }}"
+    mode: '0644'
+  loop:
+    - index_normal.html
+    - index_critical.html
+    - status_monitor.py
+
+- name: Deploy Cloud Pulse Landing Page
+  ansible.builtin.copy:
+    src: index.html
+    dest: /var/www/html/index.html
+    owner: www-data
+    group: www-data
+    mode: '0644'
+  notify: Restart Nginx
+
+- name: Ensure Nginx is running
+  ansible.builtin.service:
+    name: nginx
+    state: started
+    enabled: yes
+
+- name: Deploy Status Monitor Service
+  ansible.builtin.template:
+    src: status_monitor.service.j2
+    dest: /etc/systemd/system/status_monitor.service
+    mode: '0644'
+  notify: Restart Monitor Service
+
+- name: Enable and Start Status Monitor
+  ansible.builtin.systemd:
+    name: status_monitor
+    state: started
+    enabled: yes
+    daemon_reload: yes
