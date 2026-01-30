@@ -1,5 +1,15 @@
 # ☁️ Cloud-Pulse: A Resilient "Ops-in-a-Box" Platform
 
+![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white)
+![Terraform](https://img.shields.io/badge/terraform-%235835CC.svg?style=for-the-badge&logo=terraform&logoColor=white)
+![Ansible](https://img.shields.io/badge/ansible-%23EE0000.svg?style=for-the-badge&logo=ansible&logoColor=white)
+![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
+![Prometheus](https://img.shields.io/badge/Prometheus-E6522C?style=for-the-badge&logo=Prometheus&logoColor=white)
+![Grafana](https://img.shields.io/badge/grafana-%23F46800.svg?style=for-the-badge&logo=grafana&logoColor=white)
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![Nginx](https://img.shields.io/badge/nginx-%23009639.svg?style=for-the-badge&logo=nginx&logoColor=white)
+![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
+
 **Cloud-Pulse** är ett *Infrastructure as Code*-projekt som demonstrerar en självläkande och självövervakande molninfrastruktur. Målet med projektet var att bevisa **Resilience** genom att bygga ett system som inte bara överlever extrem belastning, utan också är "medvetet" om sin egen hälsa och kommunicerar detta visuellt till slutanvändaren.
 
 ---
@@ -14,7 +24,7 @@
 
 ## 🏗️ Arkitektur & Tech Stack
 
-![Cloud-Pulse Architecture](assets/cloud_pulse_architecture.png)
+<img src="assets/cloud_pulse_architecture.png" alt="Cloud-Pulse Architecture" width="800"/>
 
 Systemet är byggt enligt **Day 2 Operations**-principer (fokus på drift och underhåll).
 
