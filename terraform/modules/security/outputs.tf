@@ -1,12 +1,5 @@
-# =============================================================================
-# SECURITY MODULE - OUTPUTS
-# =============================================================================
-#
-# Dessa outputs används av compute-modulen för att koppla
-# security group till EC2-instansen.
-#
-# =============================================================================
 
+# Security module outputs.
 output "security_group_id" {
   description = "ID för security group (används av EC2)"
   value       = aws_security_group.main.id

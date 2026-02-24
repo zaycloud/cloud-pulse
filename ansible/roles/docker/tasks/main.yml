@@ -1,4 +1,5 @@
 ---
+# Install OS packages required by Docker.
 - name: Install required system packages for Docker
   apt:
     name:
@@ -12,26 +13,31 @@
     state: present
     update_cache: yes
 
+# Add Docker repository signing key.
 - name: Add Docker GPG apt Key
   apt_key:
     url: https://download.docker.com/linux/ubuntu/gpg
     state: present
 
+# Add Docker apt repository.
 - name: Add Docker Repository
   apt_repository:
     repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable
     state: present
 
+# Install Docker engine.
 - name: Update apt and install Docker-CE
   apt:
     name: docker-ce
     state: latest
     update_cache: yes
 
+# Install Python SDK used by Ansible Docker modules.
 - name: Install Docker Module for Python
   pip:
     name: docker
 
+# Allow ubuntu user to run Docker commands.
 - name: Add Ubuntu user to docker group
   user:
     name: ubuntu

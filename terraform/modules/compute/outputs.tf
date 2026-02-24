@@ -1,12 +1,5 @@
-# =============================================================================
-# COMPUTE MODULE - OUTPUTS
-# =============================================================================
-#
-# Dessa outputs ger information om den skapade servern.
-# Används av rot-modulen för att visa användbar info efter "terraform apply".
-#
-# =============================================================================
 
+# Compute module outputs.
 output "instance_id" {
   description = "EC2 Instance ID (unikt identifierare i AWS)"
   value       = aws_instance.this.id

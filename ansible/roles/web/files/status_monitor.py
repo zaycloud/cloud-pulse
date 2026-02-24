@@ -5,13 +5,13 @@ import psutil
 import os
 import sys
 
-# Paths to files
+# File paths used by the monitor.
 HTML_DIR = "/var/www/html"
 NORMAL_TEMPLATE = "/opt/monitoring/index_normal.html"
 CRITICAL_TEMPLATE = "/opt/monitoring/index_critical.html"
 TARGET_FILE = "/var/www/html/index.html"
 
-# Threshold for critical status (CPU %)
+# CPU limit for critical mode.
 THRESHOLD = 80.0
 
 def update_status():
@@ -24,13 +24,11 @@ def update_status():
     
     while True:
         try:
-            # Measure CPU over 1 second
             cpu_load = psutil.cpu_percent(interval=1)
             
-            # Determine logic
             new_state = "critical" if cpu_load > THRESHOLD else "normal"
             
-            # Only perform disk I/O if state changes (to save resources)
+            # Update file only when status changes.
             if new_state != current_state:
                 if new_state == "critical":
                     print(f"🔥 CPU Critical ({cpu_load}%)! Switching to RED ALERT.")

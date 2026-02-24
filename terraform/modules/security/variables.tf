@@ -1,13 +1,5 @@
-# =============================================================================
-# SECURITY MODULE - VARIABLER
-# =============================================================================
-#
-# Denna modul behöver information från networking-modulen:
-#   - vpc_id: Var ska security group skapas?
-#   - vpc_cidr: Vilka adresser är "interna"? (för att låsa port 9100)
-#
-# =============================================================================
 
+# Security module inputs.
 variable "vpc_id" {
   description = "VPC ID där security group ska skapas"
   type        = string

@@ -1,24 +1,5 @@
-# =============================================================================
-# ROOT OUTPUTS
-# =============================================================================
-#
-# Samlar outputs från ALLA moduler på ett ställe.
-# Dessa värden visas efter "terraform apply" och kan användas av
-# andra verktyg (Ansible, skript, etc.)
-#
-# SYNTAX:
-#   output "[namn]" {
-#     description = "Förklaring"
-#     value       = module.[modulnamn].[output_namn]
-#   }
-#
-# =============================================================================
 
-
-# -----------------------------------------------------------------------------
-# NETWORKING OUTPUTS
-# -----------------------------------------------------------------------------
-
+# Values printed after `terraform apply`.
 output "vpc_id" {
   description = "VPC ID"
   value       = module.networking.vpc_id
@@ -34,20 +15,10 @@ output "subnet_id" {
   value       = module.networking.public_subnet_id
 }
 
-
-# -----------------------------------------------------------------------------
-# SECURITY OUTPUTS
-# -----------------------------------------------------------------------------
-
 output "security_group_id" {
   description = "Security Group ID"
   value       = module.security.security_group_id
 }
-
-
-# -----------------------------------------------------------------------------
-# COMPUTE OUTPUTS
-# -----------------------------------------------------------------------------
 
 output "instance_id" {
   description = "EC2 Instance ID"
@@ -68,11 +39,6 @@ output "ami_used" {
   description = "AMI ID som användes"
   value       = module.compute.ami_id
 }
-
-
-# -----------------------------------------------------------------------------
-# HJÄLP-OUTPUTS (Användbara kommandon)
-# -----------------------------------------------------------------------------
 
 output "ssh_command" {
   description = "Kommando för att SSH:a in till servern"

@@ -1,25 +1,5 @@
-# =============================================================================
-# NETWORKING MODULE - OUTPUTS
-# =============================================================================
-#
-# VAD ÄR OUTPUTS?
-# Värden som modulen "exporterar" till den som anropar den.
-# Andra moduler kan sedan använda dessa värden.
-#
-# VARFÖR BEHÖVS DET?
-# Moduler är isolerade. Security-modulen kan inte direkt se VPC:n.
-# Men om vi exporterar vpc_id som output kan den användas:
-#
-#   module.networking.vpc_id  →  skickas till  →  module.security
-#
-# SYNTAX FÖR ATT ANVÄNDA:
-#   module.[modulnamn].[output_namn]
-#
-# EXEMPEL:
-#   vpc_id = module.networking.vpc_id
-#
-# =============================================================================
 
+# Networking module outputs.
 output "vpc_id" {
   description = "ID för den skapade VPC:n"
   value       = aws_vpc.this.id

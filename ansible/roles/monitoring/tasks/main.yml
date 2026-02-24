@@ -1,4 +1,5 @@
 ---
+# Create folder for monitoring files.
 - name: Create monitoring directory
   ansible.builtin.file:
     path: /opt/monitoring
@@ -7,6 +8,7 @@
     owner: ubuntu
     group: ubuntu
 
+# Write Prometheus config.
 - name: Deploy Prometheus configuration
   ansible.builtin.template:
     src: prometheus.yml.j2
@@ -16,6 +18,7 @@
     group: ubuntu
   notify: Restart monitoring stack
 
+# Write Docker Compose stack file.
 - name: Deploy Docker Compose file
   ansible.builtin.template:
     src: docker-compose.yml.j2
@@ -25,12 +28,14 @@
     group: ubuntu
   notify: Restart monitoring stack
 
+# Install tool used for CPU stress demo.
 - name: Install stress-ng for chaos demo
   ansible.builtin.apt:
     name: stress-ng
     state: present
     update_cache: yes
 
+# Copy CPU stress helper script.
 - name: Copy chaos stress script
   ansible.builtin.copy:
     src: stress_cpu.py
@@ -39,6 +44,7 @@
     owner: ubuntu
     group: ubuntu
 
+# Start or update monitoring containers.
 - name: Start monitoring stack with Docker Compose
   community.docker.docker_compose_v2:
     project_src: /opt/monitoring

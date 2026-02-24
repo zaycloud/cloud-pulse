@@ -40,6 +40,9 @@ ansible/inventory.ini
 .vscode/
 .idea/
 
+# Local learning notes (per-folder)
+**/notes/
+
 # Private/Secret Keys
 *.pem
 *.key

@@ -1,14 +1,5 @@
-# =============================================================================
-# COMPUTE MODULE - VARIABLER
-# =============================================================================
-#
-# Denna modul behöver:
-#   - subnet_id: Var ska EC2 placeras? (från networking)
-#   - security_group_ids: Vilka brandväggsregler? (från security)
-#   - ssh_public_key_path: Din SSH-nyckel för inloggning
-#
-# =============================================================================
 
+# Compute module inputs.
 variable "subnet_id" {
   description = "Subnet ID där EC2-instansen ska placeras"
   type        = string

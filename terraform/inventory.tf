@@ -1,14 +1,5 @@
-# =============================================================================
-# AUTO-GENERATED INVENTORY
-# =============================================================================
-#
-# Detta skapar automatiskt Ansible's inventory.ini-fil.
-# Terraform tar den nya IP-adressen och skriver ner den i en fil.
-#
-# Resultat: Du slipper uppdatera inventory.ini manuellt!
-#
-# =============================================================================
 
+# Build Ansible inventory from Terraform outputs.
 resource "local_file" "ansible_inventory" {
   content = <<-EOT
     [webservers]

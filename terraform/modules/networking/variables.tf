@@ -1,18 +1,5 @@
-# =============================================================================
-# NETWORKING MODULE - VARIABLER
-# =============================================================================
-#
-# MODUL-VARIABLER:
-# Dessa variabler MÅSTE skickas in när modulen anropas (om de saknar default).
-# De fungerar som modulens "API" - vad användaren kan konfigurera.
-#
-# BEST PRACTICE:
-#   - Ge tydliga descriptions
-#   - Använd rätt type (string, number, bool, list, map)
-#   - Sätt default endast om det finns ett rimligt standardvärde
-#
-# =============================================================================
 
+# Networking module inputs.
 variable "vpc_cidr" {
   description = "CIDR-block för VPC (t.ex. 10.0.0.0/16)"
   type        = string

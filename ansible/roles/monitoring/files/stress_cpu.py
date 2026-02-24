@@ -11,11 +11,10 @@ def burn_cpu(duration):
     end_time = time.time() + duration
     print(f"🔥 Process started. Burning CPU for {duration} seconds...")
     while time.time() < end_time:
-        # Heavy math operation to consume CPU cycles
         _ = 999999999 * 999999999
 
 def main():
-    # Default duration is 60 seconds if not specified
+    # Default run time.
     duration = 60
     
     if len(sys.argv) > 1:
@@ -30,15 +29,14 @@ def main():
     print(f"⏱️  Duration: {duration} seconds")
     
     processes = []
-    
-    # Launch one process per CPU core to ensure 100% usage
-    # If we only used one process, we would only max out 1 of the 2 vCPUs (50% total load)
+
+    # Start one process per CPU core.
     for _ in range(cpu_count):
         p = multiprocessing.Process(target=burn_cpu, args=(duration,))
         p.start()
         processes.append(p)
 
-    # Wait for all processes to finish
+    # Wait for all processes to finish.
     for p in processes:
         p.join()
 

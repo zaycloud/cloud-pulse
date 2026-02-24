@@ -1,4 +1,5 @@
 ---
+# Base packages used by all roles.
 - name: Update apt cache
   apt:
     update_cache: yes
